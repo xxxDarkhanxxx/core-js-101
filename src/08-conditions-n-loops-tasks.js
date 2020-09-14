@@ -122,8 +122,9 @@ function isTriangle(a, b, c) {
  *
  */
 function doRectanglesOverlap(rect1, rect2) {
-  const isTrue = (x, y, { top, left, height, width }) =>
-    y >= top && y <= top + height && x >= left && x <= left + width;
+  const isTrue = (x, y, {
+    top, left, height, width,
+  }) => y >= top && y <= top + height && x >= left && x <= left + width;
 
   return (
     isTrue(rect1.left, rect1.top, rect2) || isTrue(rect2.left, rect2.top, rect1)
@@ -158,8 +159,8 @@ function doRectanglesOverlap(rect1, rect2) {
  */
 function isInsideCircle(circle, point) {
   return (
-    (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2 <
-    circle.radius ** 2
+    (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2
+    < circle.radius ** 2
   );
 }
 
@@ -182,8 +183,7 @@ function findFirstSingleChar(str) {
         .slice(0, i)
         .concat(str.slice(i + 1))
         .indexOf(str[i]) === -1
-    )
-      return str[i];
+    ) { return str[i]; }
   }
   return null;
 }
@@ -477,24 +477,24 @@ function getMatrixProduct(m1, m2) {
 function evaluateTicTacToePosition(position) {
   for (let i = 0; i < 3; i += 1) {
     if (
-      position[0][i] === position[1][i] &&
-      position[0][i] === position[2][i] &&
-      position[0][i] !== undefined
+      position[0][i] === position[1][i]
+      && position[0][i] === position[2][i]
+      && position[0][i] !== undefined
     ) {
       return position[0][i];
     }
     if (
-      position[i][0] === position[i][1] &&
-      position[i][0] === position[i][2] &&
-      position[i][0] !== undefined
+      position[i][0] === position[i][1]
+      && position[i][0] === position[i][2]
+      && position[i][0] !== undefined
     ) {
       return position[i][0];
     }
   }
   if (
-    position[0][0] === position[1][1] &&
-    position[0][0] === position[2][2] &&
-    position[1][1] !== undefined
+    position[0][0] === position[1][1]
+    && position[0][0] === position[2][2]
+    && position[1][1] !== undefined
   ) {
     return position[0][0];
   }

@@ -45,8 +45,9 @@ const getStringLength = (value) => value.length;
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-const getStringFromTemplate = (firstName, lastName) =>
-  `Hello, ${firstName} ${lastName}`;
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
+}
 
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
@@ -104,7 +105,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  */
 function repeatString(value, count) {
   let res = value;
-  for (let i = 0; i < count - 1; i++) {
+  for (let i = 0; i < count - 1; i += 1) {
     res += value;
   }
   return res;
@@ -152,8 +153,8 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-  str = str.toUpperCase();
-  return str;
+  const st = str.toUpperCase();
+  return st;
 }
 
 /**
@@ -172,8 +173,8 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  str = str.split(';');
-  return str;
+  const st = str.split(';');
+  return st;
 }
 
 /**
@@ -359,7 +360,7 @@ function getCardId(value) {
   let res;
 
   cards.forEach((card, i) => {
-    if (card == value) {
+    if (card === value) {
       res = i;
     }
   });

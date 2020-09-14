@@ -239,7 +239,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (!isNaN(parseFloat(value)) && isFinite(value)) {
+  if (!Number.isNaN(parseFloat(value)) && Number.isFinite(value)) {
     return value;
   }
   return def;

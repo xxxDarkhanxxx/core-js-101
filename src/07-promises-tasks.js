@@ -98,16 +98,14 @@ async function chainPromises(array, action) {
   const result = [];
   let chain = 0;
 
-  chain = await array.map((item) =>
-    Promise.resolve(item)
-      .then((value) => {
-        result.push(value);
-      })
-      .then(() => result.reduce(action))
-      .catch(() => {
-        chain = chain - 1 + 1;
-      })
-  );
+  chain = await array.map((item) => Promise.resolve(item)
+    .then((value) => {
+      result.push(value);
+    })
+    .then(() => result.reduce(action))
+    .catch(() => {
+      chain = chain - 1 + 1;
+    }));
   return chain[0];
 }
 
